@@ -13,12 +13,12 @@ const categories = [
 ];
 
 const sampleProducts = [
-  { id: 1, title: "Birthday Cake (Custom)", seller: "Anitha's Bakes", price: 450, distance: "0.4km", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80" },
-  { id: 2, title: "Glass Bangle Set (6 pcs)", seller: "Fathima Collections", price: 80, distance: "1.2km", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80" },
-  { id: 3, title: "Homemade Mango Pickle 500g", seller: "Lekha's Kitchen", price: 120, distance: "0.6km", image: "https://images.unsplash.com/photo-1626082895617-2c6b41249e0b?w=500&q=80" },
-  { id: 4, title: "Handwoven Kasavu Saree", seller: "Devika Handlooms", price: 2400, distance: "2.1km", image: "https://images.unsplash.com/photo-1610189014605-72d96a788dc6?w=500&q=80" },
-  { id: 5, title: "Aloe Vera Face Pack", seller: "Green Glow by Sreeja", price: 150, distance: "0.9km", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&q=80" },
-  { id: 6, title: "Terracotta Lamp", seller: "Midhun Crafts", price: 350, distance: "1.5km", image: "https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?w=500&q=80" },
+  { id: 1, title: "Birthday Cake (Custom)", seller: "Anitha's Bakes", price: 450, distance: "0.4km", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80", aspect: "aspect-[3/4]" },
+  { id: 2, title: "Glass Bangle Set (6 pcs)", seller: "Fathima Collections", price: 80, distance: "1.2km", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80", aspect: "aspect-[4/5]" },
+  { id: 3, title: "Homemade Mango Pickle 500g", seller: "Lekha's Kitchen", price: 120, distance: "0.6km", image: "https://images.unsplash.com/photo-1626082895617-2c6b41249e0b?w=500&q=80", aspect: "aspect-square" },
+  { id: 4, title: "Handwoven Kasavu Saree", seller: "Devika Handlooms", price: 2400, distance: "2.1km", image: "https://images.unsplash.com/photo-1610189014605-72d96a788dc6?w=500&q=80", aspect: "aspect-[2/3]" },
+  { id: 5, title: "Aloe Vera Face Pack", seller: "Green Glow by Sreeja", price: 150, distance: "0.9km", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&q=80", aspect: "aspect-[4/5]" },
+  { id: 6, title: "Terracotta Lamp", seller: "Midhun Crafts", price: 350, distance: "1.5km", image: "https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?w=500&q=80", aspect: "aspect-square" },
 ];
 
 export default function Home() {
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
 
         {/* Masonry Product Grid */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
           {sampleProducts.map((product, i) => (
             <motion.div 
               key={product.id}
@@ -105,9 +105,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i }}
               whileHover={{ y: -4 }}
-              className="break-inside-avoid bg-warm-white rounded-2xl overflow-hidden border border-border group cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
+              className="break-inside-avoid bg-warm-white rounded-2xl overflow-hidden border border-border group cursor-pointer shadow-sm hover:shadow-md transition-all duration-300 mb-4"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className={`relative overflow-hidden ${product.aspect}`}>
                 <Image 
                   src={product.image} 
                   alt={product.title} 
