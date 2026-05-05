@@ -28,35 +28,48 @@ export default function Home() {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
         {/* Hero Section */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="relative text-center max-w-4xl mx-auto mb-16 pt-8 md:pt-16">
+          {/* Subtle background glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent-light/50 blur-[100px] rounded-full -z-10"></div>
+          
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-accent-light text-accent px-3 py-1 rounded-full text-xs font-medium mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 bg-white border border-border/50 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm mb-8"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
-            Kerala&apos;s local marketplace
+            Kerala&apos;s Local Marketplace
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-serif text-ink mb-4 leading-tight"
+            transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-7xl lg:text-8xl font-serif text-ink mb-6 leading-[1.05] tracking-tight"
           >
-            Discover homemade <em className="text-accent not-italic">treasures</em> near you
+            Discover homemade <br className="hidden md:block"/>
+            <span className="relative inline-block mt-2 md:mt-0">
+              <span className="relative z-10 text-accent italic pr-2">treasures</span>
+              <motion.span 
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
+                className="absolute bottom-1 md:bottom-3 left-0 h-3 md:h-6 bg-accent-gold/20 -z-0 -rotate-1"
+              ></motion.span>
+            </span> near you
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-muted text-base md:text-lg"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-muted text-lg md:text-xl max-w-xl mx-auto font-medium"
           >
-            From student bakers to handloom sellers — find them all nearby
+            From student bakers to handloom sellers — find unique, local products right in your neighborhood.
           </motion.p>
         </div>
 
